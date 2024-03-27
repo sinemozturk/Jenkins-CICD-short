@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+    
+    // define the maven and java tools to be able to run their command
+    tools{
+        jdk 'jdk11'
+        maven  'maven'
+    }
+
+    stages {
+        stage('Git Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/jaiswaladi246/Petclinic.git'
+            }
+        }
+        stage('Compile') {
+            steps {
+                sh "mvn clean compile"
+            }
+        }
+         stage('Build') {
+            steps {
+                sh "mvn clean package"
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh "sudo cp target/petclinic.war /opt/apache-tomcat-9.0.67/webapps" 
+            }
+        }
+    }
+}
