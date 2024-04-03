@@ -158,7 +158,7 @@ java -jar jenkins.war --httpPort=8082
         - `CloudBees Docker Build and Publish`
     - write ` sonarqube ` on search bar and click and install without restart following plugins;
         - `SonarQube Scanner `
-c65dc14331cd45c5bbb8a577c2b13996
+
 
 ## Global Tool Configuration
 
